@@ -6,17 +6,17 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     todos: [
-      'I have a pen',
-      'I have an apple',
-      'ahh apple-pen',
+      { task: 'I have a pen', done: false },
+      { task: 'I have an apple', done: false },
+      { task: 'ahh apple-pen', done: false },
     ],
   },
   mutations: {
     addItem(state, payload) {
-      state.todos.push(payload);
+      state.todos.push({ task: payload, done: false });
     },
-    removeItem(state, index) {
-      state.todos.splice(index, 1);
+    finishItem(state, index) {
+      state.todos[index].done = true;
     },
   },
   actions: {

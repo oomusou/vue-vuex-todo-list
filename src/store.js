@@ -18,11 +18,7 @@ export default new Vuex.Store({
     itemsDone(state, getters) {
       return state.todos.length - getters.itemsNotDone;
     },
-    taskByIndex(state) {
-      return (index) => {
-        return state.todos[index].task;
-      };
-    },
+    taskByIndex: state => index => state.todos[index].task,
   },
   mutations: {
     addItem(state, payload) {

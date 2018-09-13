@@ -8,22 +8,24 @@
     </ul>
     <h2>Not done : {{ itemsNotDone }}</h2>
     <h2>Done : {{ itemsDone }}</h2>
+    <h2>Task : {{ taskByIndex(index) }}</h2>
   </div>
 </template>
 
 <script>
-import { mapState,mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'app',
   data() {
     return {
       input: '',
+      index: 0,
     };
   },
   computed: {
     ...mapState(['todos']),
-    ...mapGetters(['itemsNotDone', 'itemsDone']),
+    ...mapGetters(['itemsNotDone', 'itemsDone', 'taskByIndex']),
   },
   methods: {
     addItem() {
@@ -32,6 +34,7 @@ export default {
     },
     finishItem(index) {
       this.$store.commit('finishItem', index);
+      this.index = index;
     },
   },
 };

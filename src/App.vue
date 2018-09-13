@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState,mapGetters } from 'vuex';
 
 export default {
   name: 'app',
@@ -22,9 +22,7 @@ export default {
   },
   computed: {
     ...mapState(['todos']),
-    itemsNotDone() {
-      return this.$store.state.todos.filter(item => !item.done).length;
-    },
+    ...mapGetters(['itemsNotDone']),
   },
   methods: {
     addItem() {

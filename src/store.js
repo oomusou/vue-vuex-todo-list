@@ -11,6 +11,11 @@ export default new Vuex.Store({
       { task: 'ahh apple-pen', done: false },
     ],
   },
+  getters: {
+    itemsNotDone(state) {
+      return state.todos.filter(item => !item.done).length;
+    },
+  },
   mutations: {
     addItem(state, payload) {
       state.todos.push({ task: payload, done: false });

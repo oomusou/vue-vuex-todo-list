@@ -7,6 +7,7 @@
       </li>
     </ul>
     <h2>Not done : {{ itemsNotDone }}</h2>
+    <h2>Done : {{ itemsDone }}</h2>
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
   },
   computed: {
     ...mapState(['todos']),
-    ...mapGetters(['itemsNotDone']),
+    ...mapGetters(['itemsNotDone', 'itemsDone']),
   },
   methods: {
     addItem() {

@@ -15,6 +15,9 @@ export default new Vuex.Store({
     itemsNotDone(state) {
       return state.todos.filter(item => !item.done).length;
     },
+    itemsDone(state, getters) {
+      return state.todos.length - getters.itemsNotDone;
+    },
   },
   mutations: {
     addItem(state, payload) {
